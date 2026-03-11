@@ -1,30 +1,26 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:myapp/main.dart';
+// Asegúrate de que el nombre del paquete coincida con el de tu proyecto
+import 'package:myapp/main.dart'; 
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Prueba de carga de productos de ferretería', (WidgetTester tester) async {
+    // 1. Carga la aplicación
+    await tester.pumpWidget(const MiFerreteriaApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // 2. Verifica que el título de la AppBar sea el correcto
+    expect(find.text('Ferretería "El Clavo"'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // 3. Verifica que los títulos de los productos existan en la pantalla
+    expect(find.text('Herramientas Varias'), findsOneWidget);
+    expect(find.text('Martillo Profesional'), findsOneWidget);
+    expect(find.text('Taladro Percutor'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // 4. Verifica que existan exactamente 3 tarjetas (Card)
+    expect(find.byType(Card), findsNWidgets(3));
+
+    // 5. Verifica que se están intentando cargar imágenes
+    expect(find.byType(Image), findsNWidgets(3));
   });
 }
