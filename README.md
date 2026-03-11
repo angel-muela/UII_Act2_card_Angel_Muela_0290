@@ -6,4 +6,5 @@ lenguaje dart flutter, nivel principiante en una columna inserta 3 filas, y en c
 
 # mi diseño
 
-<img width="1219" height="490" alt="image" src="https://github.com/user-attachments/assets/12c22f79-949b-49a0-96e2-80400f606bc7" />
+<img width="408" height="788" alt="image" src="https://github.com/user-attachments/assets/0e964496-2c77-4f63-acde-023f20f3b502" />
+
